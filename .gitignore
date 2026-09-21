@@ -1,0 +1,10 @@
+# Visual Studio directories
+.vs/
+bin/
+obj/
+[Dd]ebug*/
+[Rr]elease*/
+[Pp]ackages/
+
+# Rider directories
+.idea/

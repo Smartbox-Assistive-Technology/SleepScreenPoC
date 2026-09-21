@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SleepScreenPoC.MainWindow"
+        Title="Sleep Screen PoC"
+        Width="920" Height="600">
+    <Grid Margin="12" RowDefinitions="Auto,Auto,Auto,*,Auto">
+
+        <TextBlock Grid.Row="0" TextWrapping="Wrap" Margin="0,0,0,8">
+            Test application for comparing the legacy (unsupported) and supported approaches to Grid's
+            "sleep screen" feature. Trigger a sleep, then either wait for the fallback timer or
+            simulate continued input to see it cancel. The log below is also mirrored to a file
+            shown at the bottom of this window.
+        </TextBlock>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8" Margin="0,0,0,8">
+            <Button Content="WM_SYSCOMMAND: turn off (unsupported)" Click="OnLegacyOffClick" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8" Margin="0,0,0,8">
+            <Button Content="VIDEOIDLE: prepare off (shorten to 1 sec)" Click="OnSupportedOffClick" />
+            <Button Content="Simulate crash" Click="OnSimulateCrashClick" />
+            <Button Content="Simulate hard kill" Click="OnSimulateHardKillClick" Background="IndianRed" />
+        </StackPanel>
+
+        <ListBox Grid.Row="3" Name="LogListBox" FontFamily="Consolas" />
+
+        <TextBlock Grid.Row="4" Name="StatusText" Margin="0,8,0,0" Opacity="0.7" />
+    </Grid>
+</Window>
